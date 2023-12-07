@@ -29,7 +29,7 @@ func (s *Parser) scanBody() error {
 
 		fld.Val = ""
 
-		for i := 0; i <= 100; i++ {
+		for {
 			t := s.Scan()
 			p = s.Peek()
 
@@ -41,10 +41,6 @@ func (s *Parser) scanBody() error {
 			}
 
 			fld.Val += s.TokenText()
-
-			if i == 100 {
-				return errors.New("Unclosed body, expected -")
-			}
 		}
 
 		mp[fld.Key] = Node{
