@@ -33,7 +33,7 @@ func (s *Parser) scanBody() error {
 			t := s.Scan()
 			p = s.Peek()
 
-			if t < 0{
+			if t == -1 {
 				break
 			}
 			if p == '-' && t == '\n' {
